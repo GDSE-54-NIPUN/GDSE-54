@@ -10,14 +10,15 @@
  *
  */
 
-package lk.ijse.git.bo.custom;
+package lk.ijse.git.dao.Custom;
 
-import lk.ijse.git.dto.CustomerDTO;
+import lk.ijse.git.dao.CRUDDAO;
+import lk.ijse.git.entity.Customer;
+import lk.ijse.git.entity.Item;
 
 /**
  * @author : Nipun Chathuranga <nipunc1999@gmail.com>
  * @since : 8/7/2021
  **/
-public interface CustomerBO {
-    public boolean addCustomer(CustomerDTO dto) throws Exception;
+public interface ItemDAO extends CRUDDAO<Item, String> {
 }

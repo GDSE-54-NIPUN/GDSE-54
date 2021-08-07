@@ -13,11 +13,12 @@
 package lk.ijse.git.bo.custom;
 
 import lk.ijse.git.dto.CustomerDTO;
+import lk.ijse.git.dto.ItemDTO;
 
 /**
  * @author : Nipun Chathuranga <nipunc1999@gmail.com>
  * @since : 8/7/2021
  **/
-public interface CustomerBO {
-    public boolean addCustomer(CustomerDTO dto) throws Exception;
+public interface ItemBO {
+    public boolean addItem(ItemDTO dto) throws Exception;
 }

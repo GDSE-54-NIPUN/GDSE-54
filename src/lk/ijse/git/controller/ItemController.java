@@ -18,9 +18,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import lk.ijse.git.bo.BOFactory;
-import lk.ijse.git.bo.custom.CustomerBO;
-import lk.ijse.git.dto.CustomerDTO;
+import lk.ijse.git.bo.custom.ItemBO;
+import lk.ijse.git.dao.Custom.ItemDAO;
+import lk.ijse.git.dto.ItemDTO;
 
+import java.io.Serializable;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -28,7 +30,7 @@ import java.util.ResourceBundle;
  * @author : Nipun Chathuranga <nipunc1999@gmail.com>
  * @since : 8/7/2021
  **/
-public class CustomerController implements Initializable {
+public class ItemController implements Initializable {
     @FXML
     private JFXTextField txtId;
 
@@ -36,29 +38,34 @@ public class CustomerController implements Initializable {
     private JFXTextField txtName;
 
     @FXML
-    private JFXTextField txtSalary;
+    private JFXTextField txtPrice;
 
     @FXML
     private JFXButton btnAdd;
 
-    CustomerBO customerBO;
+    @FXML
+    private JFXTextField txtQty;
+
+    private ItemBO itemBO;
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        customerBO = BOFactory.getInstance().getBO(BOFactory.BOType.CUSTOMER);
+        itemBO = BOFactory.getInstance().getBO(BOFactory.BOType.ITEM);
     }
 
     public void save(ActionEvent actionEvent) {
-        String id = txtId.getText();
+        String code = txtId.getText();
         String name = txtName.getText();
-        double salary = Double.parseDouble(txtSalary.getText());
+        double price = Double.parseDouble(txtPrice.getText());
+        int qty = Integer.parseInt(txtQty.getText());
 
-        CustomerDTO customer = new CustomerDTO(id,name,salary);
-
+        ItemDTO itemDTO = new ItemDTO(code, name, price, qty);
         try {
-            boolean isAdded = customerBO.addCustomer(customer);
+            boolean isAdded = itemBO.addItem(itemDTO);
             System.out.println("isAdded = " + isAdded);
         } catch (Exception exception) {
             exception.printStackTrace();
         }
+
     }
 }

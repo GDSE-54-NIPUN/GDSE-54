@@ -12,8 +12,8 @@
 
 package lk.ijse.git.dao.Custom.impl;
 
-import lk.ijse.git.dao.Custom.CustomerDAO;
-import lk.ijse.git.entity.Customer;
+import lk.ijse.git.dao.Custom.ItemDAO;
+import lk.ijse.git.entity.Item;
 import lk.ijse.git.util.HibernateUtil;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -24,20 +24,19 @@ import java.io.Serializable;
  * @author : Nipun Chathuranga <nipunc1999@gmail.com>
  * @since : 8/7/2021
  **/
-public class CustomerDAOImpl implements CustomerDAO {
+public class ItemDAOImpl implements ItemDAO {
 
     private SessionFactory sessionFactory;
 
-    public CustomerDAOImpl(SessionFactory sessionFactory) {
-        this.sessionFactory = HibernateUtil.getSessionFactory();
+    public ItemDAOImpl() {
     }
 
-    public CustomerDAOImpl() {
-
+    public ItemDAOImpl(SessionFactory sessionFactory) {
+        this.sessionFactory = HibernateUtil.getSessionFactory();;
     }
 
     @Override
-    public boolean save(Customer entity) throws Exception {
+    public boolean save(Item entity) throws Exception {
         try (Session session = sessionFactory.openSession()) {
             session.getTransaction().begin();
             Serializable save = session.save(entity);
