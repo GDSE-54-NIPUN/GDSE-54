@@ -10,27 +10,21 @@
  *
  */
 
-package lk.ijse.git.entity;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
+package lk.ijse.git.dto;
 
 /**
  * @author : Nipun Chathuranga <nipunc1999@gmail.com>
  * @since : 8/7/2021
  **/
-
-@Entity
-public class Customer implements SupperEntity{
-    @Id
+public class CustomerDTO {
     private String id;
     private String name;
     private double salary;
 
-    public Customer() {
+    public CustomerDTO() {
     }
 
-    public Customer(String id, String name, double salary) {
+    public CustomerDTO(String id, String name, double salary) {
         this.id = id;
         this.name = name;
         this.salary = salary;
@@ -62,7 +56,7 @@ public class Customer implements SupperEntity{
 
     @Override
     public String toString() {
-        return "Customer{" +
+        return "CustomerDTO{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 ", salary=" + salary +
