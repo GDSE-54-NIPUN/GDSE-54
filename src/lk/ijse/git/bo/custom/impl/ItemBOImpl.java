@@ -12,31 +12,33 @@
 
 package lk.ijse.git.bo.custom.impl;
 
-import lk.ijse.git.bo.custom.CustomerBO;
+import lk.ijse.git.bo.custom.ItemBO;
 import lk.ijse.git.dao.Custom.CustomerDAO;
+import lk.ijse.git.dao.Custom.ItemDAO;
 import lk.ijse.git.dao.DAOFactory;
 import lk.ijse.git.dto.CustomerDTO;
+import lk.ijse.git.dto.ItemDTO;
 import lk.ijse.git.entity.Customer;
+import lk.ijse.git.entity.Item;
 
 /**
  * @author : Nipun Chathuranga <nipunc1999@gmail.com>
  * @since : 8/7/2021
  **/
-public class CustomerBOImpl implements CustomerBO {
+public class ItemBOImpl implements ItemBO {
+    private ItemDAO itemDAO;
 
-    private CustomerDAO customerDAO;
+    public ItemBOImpl(ItemDAO itemDAO) {
 
-    public CustomerBOImpl(CustomerDAO customerDAO) {
-
-        this.customerDAO = DAOFactory.getInstance().getRepo(DAOFactory.RepoType.CUSTOMER);
+        this.itemDAO = DAOFactory.getInstance().getRepo(DAOFactory.RepoType.ITEM);
     }
 
-    public CustomerBOImpl() {
+    public ItemBOImpl() {
     }
 
     @Override
-    public boolean addCustomer(CustomerDTO dto) throws Exception {
+    public boolean addItem(ItemDTO dto) throws Exception {
 
-        return customerDAO.save(new Customer(dto.getId(), dto.getName(), dto.getSalary()));
+        return itemDAO.save(new Item(dto.getItemCode(),dto.getItemName(),dto.getPrice(),dto.getQty()));
     }
 }

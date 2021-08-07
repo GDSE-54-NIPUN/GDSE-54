@@ -10,28 +10,22 @@
  *
  */
 
-package lk.ijse.git.entity;
-
-import javax.persistence.Entity;
-import javax.persistence.Id;
+package lk.ijse.git.dto;
 
 /**
  * @author : Nipun Chathuranga <nipunc1999@gmail.com>
  * @since : 8/7/2021
  **/
-
-@Entity
-public class Item implements SupperEntity {
-    @Id
+public class ItemDTO {
     private String itemCode;
     private String itemName;
     private double price;
     private int qty;
 
-    public Item() {
+    public ItemDTO() {
     }
 
-    public Item(String itemCode, String itemName, double price, int qty) {
+    public ItemDTO(String itemCode, String itemName, double price, int qty) {
         this.itemCode = itemCode;
         this.itemName = itemName;
         this.price = price;

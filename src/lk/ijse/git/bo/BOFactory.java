@@ -13,6 +13,7 @@
 package lk.ijse.git.bo;
 
 import lk.ijse.git.bo.custom.impl.CustomerBOImpl;
+import lk.ijse.git.bo.custom.impl.ItemBOImpl;
 
 /**
  * @author : Nipun Chathuranga <nipunc1999@gmail.com>
@@ -41,7 +42,7 @@ public class BOFactory {
             case CUSTOMER:
                 return (T) new CustomerBOImpl();
             case ITEM:
-                //return (T) new ItemBOImpl();
+                return (T) new ItemBOImpl();
             default:
                 return null;
         }

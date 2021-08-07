@@ -10,14 +10,20 @@
  *
  */
 
-package lk.ijse.git.bo.custom;
+package lk.ijse.git.controller;
 
-import lk.ijse.git.dto.CustomerDTO;
+import javafx.fxml.Initializable;
+
+import java.net.URL;
+import java.util.ResourceBundle;
 
 /**
  * @author : Nipun Chathuranga <nipunc1999@gmail.com>
  * @since : 8/7/2021
  **/
-public interface CustomerBO {
-    public boolean addCustomer(CustomerDTO dto) throws Exception;
+public class DashbordController implements Initializable {
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
 }
